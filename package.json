@@ -1,0 +1,21 @@
+{
+  "name": "x402-mint-xtest",
+  "version": "1.0.0",
+  "description": "Full-stack web app for minting ERC-20 tokens with x402 payment standard",
+  "private": true,
+  "workspaces": [
+    "contracts",
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter backend dev\" \"pnpm --filter frontend dev\"",
+    "build": "pnpm --filter contracts build && pnpm --filter backend build && pnpm --filter frontend build",
+    "deploy:contracts": "pnpm --filter contracts deploy",
+    "test": "pnpm --filter contracts test",
+    "install:all": "pnpm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
