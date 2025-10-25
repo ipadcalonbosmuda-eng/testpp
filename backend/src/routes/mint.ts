@@ -146,6 +146,7 @@ export const mintHandler = async (req: Request, res: Response) => {
 
   } catch (error) {
     console.error('Mint error:', error);
-    res.status(500).json({ error: 'Minting failed', details: error.message });
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    res.status(500).json({ error: 'Minting failed', details: errorMessage });
   }
 };
